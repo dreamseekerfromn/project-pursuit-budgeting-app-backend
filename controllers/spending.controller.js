@@ -8,7 +8,6 @@ spending.get("/", (req, res) => {
     if(req.query.length === 0){
         //no query, show everything
         res.status(200).json(spendingArray);
-        res.send("hi")
     }
     else{
         //do something for queries
