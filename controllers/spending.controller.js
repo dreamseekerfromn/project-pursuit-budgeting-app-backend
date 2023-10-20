@@ -15,12 +15,29 @@ spending.get("/", (req, res) => {
     }
 });
 
+spending.get("/date", (req, res) => {
+    let dateResult = {};
+    for(let index of spendingArray){
+        if(!dateResult[index.date]){
+            dateResult[index.date] = [];
+        }
+        dateResult[index.date].push(index.id);
+    }
+    res.status(200).json(dateResult);
+})
+
 /** get w/ date parameter */
-spending.get("/:dateSpending", (req, res) => {
+spending.get("/date/:dateSpending", (req, res) => {
     const { dateSpending } = req.params;
     let result = spendingArray.filter(item => item.date == dateSpending);
     res.status(200).json(result);
 });
+
+spending.get("/:id", (req, res) => {
+    const { id } = req.params;
+    let result = spendingArray.filter(item => item.id === id);
+    res.status(200).json(result);
+})
 
 /** post */
 spending.post("/",  (req, res) => {
