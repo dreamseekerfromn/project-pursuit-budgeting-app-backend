@@ -1,6 +1,6 @@
 const express = require("express");
 const spending = express.Router();
-const spendingArray = require('../models/spending.js');
+let spendingArray = require('../models/spending.js');
 //const validateURL = require("../models/validateURL.js");
 
 /** get */
@@ -65,9 +65,10 @@ spending.put("/:id", (req, res) => {
     const { id } = req.params;
     let arrayIndex = spendingArray.findIndex(item => item.id === id);
     if(arrayIndex || arrayIndex == 0){
-        let deletedLog = spendingArray.splice(arrayIndex, 1);
-        console.log("delete something!")
-        res.status(200).send(`item id ${id} has been deleted\n`);
+        spendingArray.splice(arrayIndex, 1, req.body);
+        console.log("updated something!");
+        console.log(spendingArray);
+        res.status(200).send(`item id ${id} has been updated\n`);
     }
     else{
         res.status(404).redirect("/9001");

@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const spendingController = require('./controllers/spending.controller.js');
+const incomeController = require('./controllers/income.controller.js');
 
 app.use(cors());
 app.use(express.json());
@@ -12,6 +13,7 @@ app.get("/", (request, response) => {
 });
 
 app.use("/spending", spendingController);
+app.use("/income", incomeController);
 
 // 404 Page not found
 app.get("*", (req, res) => {
