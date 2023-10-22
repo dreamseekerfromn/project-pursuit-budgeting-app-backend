@@ -76,7 +76,7 @@ income.put("/:id", (req, res) => {
 });
 /** page 404 */
 income.get("*", (req, res) => {
-    res.status(404).send("");
+    res.status(404).send({error: "error"});
 });
 
 module.exports = income;
