@@ -3,7 +3,7 @@
 ## Introduction
 
 This repo is for the SY's Simple Budgeting App back-end.
-(URL)[https://project-pursuit-budgeting-app-backend.onrender.com]
+[URL](https://project-pursuit-budgeting-app-backend.onrender.com)
 
 ## This Back-End Is Built With...
 
